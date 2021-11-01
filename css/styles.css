@@ -43,6 +43,49 @@ body {
     color: #fff
 }
 
+/*Footer*/
+
+.pie {
+  margin-top: 30px;
+  padding: 20px 0 10px 0;
+  background-color: mistyrose;
+  display: flex; 
+}
+.footer-contact {
+  text-align: right;
+  padding-left: 20px;
+}
+.footer-social {
+  margin: 0;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px; 
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px; 
+}
+.logo-di-footer {
+  margin-left: 20px;
+  padding-top: 18px;
+  width: 50%; 
+}
+.footer-about {
+  margin: 10px 20px; 
+}
+.logo-footer {
+  width: 45%;
+  transition: all 0.5s; 
+}
+.logo-footer:hover {
+  transform: rotate(60deg); 
+}
+.menu-footer {
+  color: #000d1a;
+  font-size: 20px; 
+}        
 .speedup:hover {
     box-shadow: 0 0 25px 0 rgba(20, 27, 201, .05);
     cursor: pointer;

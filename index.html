@@ -19,7 +19,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Carrito</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">¿Cómo hago?</a></li>
                     </ul>
                 </div>
@@ -40,10 +40,24 @@
 
                 <h1 class="text-black fs-3 fw-bolder">¿QUERÉS SIMULAR TU CUPÓN DE DESCUENTO?</h1>
                 <span style="color: rgb(245, 19, 19);">IMPORTE A GASTAR:</span> 
-                <input type="number" id="importeCupon" value="0" />
+                <input type="number" id="importeCupon" value="0">
                 <button onclick="mostrarDescuento()" class="btn btn-danger">Calcular</button>
             </div>
         </header>
+        <div>
+            <p class="saludo">Hola!</p>
+            <p class="saludo" id="nombre-usuario"></p>
+            <p class="saludo"> Cómo estás?</p>
+            <h1>Tienda Virtual</h1>
+          </div>
+     </section>
+     <main>
+        <div id="tabla-dom">
+          <!--Contenedor para pruebas DOM-->
+        </div>
+          <div><!--Contenedor General Tienda-->
+              
+              <!-- cards de productos a desarrollar-->
         <div class="container-fluid mb-5">
           <div class="text-center mt-5">
               <h1>ELEGÍ TU HIKUPON</h1>
@@ -53,8 +67,9 @@
                   <div class="box">
                       <div class="our-services settings">
                           <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
-                          <h4>HOGAR</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                          <h4>LIBRERIAS</h4>
+                          <p class="card-text" id="descuento-libreria"></p>
+                          <a href="#" id="btn-descuento-desc0" class="btn btn-primary">Comprar</a>
                       </div>
                   </div>
               </div>
@@ -63,7 +78,8 @@
                       <div class="our-services speedup">
                           <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
                           <h4>ACCESORIOS</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                          <p class="card-text" id="descuento-accesorio"></p>
+                          <a href="#" id="btn-descuento-desc1" class="btn btn-primary">Comprar</a>
                       </div>
                   </div>
               </div>
@@ -72,7 +88,8 @@
                       <div class="our-services privacy">
                           <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
                           <h4>VIAJES</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
+                          <p class="card-text" id="descuento-viajes"></p>
+                          <a href="#" id="btn-descuento-desc2" class="btn btn-primary">Comprar</a>
                       </div>
                   </div>
               </div>
@@ -82,9 +99,10 @@
                   <div class="box">
                       <div class="our-services backups">
                           <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
-                          <h4>LIBRERIAS</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit </p>
-                      </div>
+                          <h4>HOGAR</h4>
+                          <p class="card-text" id="descuento-articulos"></p>
+                          <a href="#" id="btn-descuento-desc3" class="btn btn-primary">Comprar</a>
+                    </div>
                   </div>
               </div>
               <div class="col-md-4">
@@ -92,7 +110,8 @@
                       <div class="our-services ssl">
                           <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
                           <h4>PAPELERIA</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                          <p class="card-text" id="descuento-papeleria"></p>
+                          <a href="#" id="btn-descuento-desc4" class="btn btn-primary">Comprar</a>
                       </div>
                   </div>
               </div>
@@ -101,7 +120,8 @@
                       <div class="our-services database">
                           <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
                           <h4>INDUMENTARIA</h4>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+                          <p class="card-text" id="descuento-indumentaria"></p>
+                          <a href="#" id="btn-descuento-desc5" class="btn btn-primary">Comprar</a>
                       </div>
                   </div>
               </div>
@@ -113,8 +133,51 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-6">
                         <h2>Usamos tu presupuesto</h2>
-                        <p class="lead">Usamos tu presupuesto y lo convertimos en descuentos únicos.</p>
-                        <p class="mb-0">Solo por compartir tu cupón te llevas un 5% extra!</p>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="well well-sm">
+                                        <form class="form-horizontal" method="post">
+                                            <fieldset>
+                                                <legend class="text-center header">Ayudanos a construir descuentos</legend>
+                        
+                                                <div id= "divCampoNombre" class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="txtNombre" name="Nombre y Apellido" type="text" placeholder="Nombre y apellido" class="form-control">
+                                                    </div>
+                                                </div>
+                                                                     
+                                                <div id= "divCampoEmail"class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <input id="txtEmail" name="email" type="text" placeholder="Email " class="form-control">
+                                                    </div>
+                                                </div>
+                                                                                           
+                                                <div id="divCampoAsunto"class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" id="txtAsunto" name="Asunto" placeholder="Qué otros descuentos usarías" rows="7"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div id= "divCampoMensaje"class="form-group">
+                                                    <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
+                                                    <div class="col-md-8">
+                                                        <textarea class="form-control" id="txtMensaje" name="Asunto" placeholder="Contanos tus ideas" rows="7"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12 text-center">
+                                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,12 +187,29 @@
             <div style="height: 20rem"></div>
            </div>
         <!-- Footer-->
+        <div class="col-md-3 col-lg-2">
+            <h3>Redes Sociales</h3>
+            <div class="footer-social">
+              <a class="a-social-link" href="#"><img class="logo-footer" src="assets/logoig.png" alt="logo Instagram"></a>
+              <a class="a-social-link" href="#"> <img class="logo-footer" src="assets/logomail.png" alt="logo mail"></a>
+            </div>
+            
+          </div>
+          <div class="col-md-3 col-lg-3">
+            <div class="footer-contact">
+              <h3>También podes contactarnos</h3>
+              <p class="textoFooter">Escribinos: tienda.hikupon@gmail.com</p>
+            </div>
+          </div>
+          </footer>
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HIKUPON</p></div>
         </footer>
-        <!-- Bootstrap core JS-->
+        <!-- Bootstrap -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
+        <!--  JS-->
         <script src="js/scripts.js"></script>
+        <script src="js/productos.js"></script>
+        <script src="js/form.js"></script>
     </body>
 </html>

@@ -1,3 +1,4 @@
+
 //Ejemplo de descuentos 
 
 
@@ -212,7 +213,7 @@ function activarDark() {
 }
 
 
-
+//Caja de validación 
 
 function validar()
 {

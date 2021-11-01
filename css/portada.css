@@ -1,0 +1,16 @@
+body {
+    background-color:   #cca2ff;
+}
+.contenedor-btn {
+    display: flex;
+    justify-content: center;
+}
+.btn-portal {
+    margin-top: 200px;
+    color:rosybrown;
+    font-size: 40px;
+    font-weight: 500;
+    padding: 15px 32px;
+    text-align: center;
+    cursor: pointer;
+}
