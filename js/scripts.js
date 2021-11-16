@@ -1,7 +1,7 @@
 
 //Ejemplo de descuentos 
 
-
+/*
 function mostrarDescuento() {
     let precio= document.getElementById("importeCupon").value;
 
@@ -209,7 +209,7 @@ function activarDark() {
     }
     tituloTxt.style.color = "white";
     let boton = document.getElementById ("boton");
-    boton.innerText = "Light Mode";
+    boton.innerText = "Light Mode"; 
 }
 
 
@@ -226,4 +226,4 @@ function validar()
     }
 
     return ok;
-}
+}*/

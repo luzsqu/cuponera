@@ -1,9 +1,67 @@
+// jquery + concatenación de animación
+//localStorage
+
+var carrito = [];
+localStorage.setItem("Carrito", JSON.stringify(carrito));
+  
+//validación de campos + login con jquery
+
+function ValidarUsuario(){
+
+  
+  document.getElementById("usuario").innerHTML=document.getElementById("txt1").value;
+
+  $("#paso1").fadeOut("slow", function(){document.getElementById("paso2").style.display='block';} );
+
+}
+// Agregar+quitar de carrito con localStorage-Jquery-JS
+
+function AgregarCarrito(producto){
+  var btnAgregar= "#btn-agregar-"+producto;
+  var btQuitar= "#btn-quitar-"+producto;
+
+  $(btnAgregar).fadeOut("slow", function(){$(btQuitar).fadeIn("slow");});
+
+  var carrito=  JSON.parse(localStorage.getItem('Carrito'));
+
+  carrito.push(producto);
+
+  localStorage.setItem("Carrito", JSON.stringify(carrito));
+
+  console.log(carrito);
+
+  document.getElementById("contador").innerHTML= carrito.length;
+}
+
+
+function QuitarCarrito(producto){
+  var btnAgregar= "#btn-agregar-"+producto;
+  var btQuitar= "#btn-quitar-"+producto;
+
+  $(btQuitar).fadeOut("slow", function(){$(btnAgregar).fadeIn("slow");});
+
+  var carrito=  JSON.parse(localStorage.getItem('Carrito'));
+
+  const index = carrito.indexOf(producto);
+  if (index > -1) {
+    carrito.splice(index, 1);
+  }
+
+  localStorage.setItem("Carrito", JSON.stringify(carrito));
+
+  console.log(carrito);
+
+  document.getElementById("contador").innerHTML= carrito.length;  
+}
+
+
+/*
 //Saludo con prompt y nombre
 
 const saludoUsuario = document.getElementById("nombre-usuario");
-const saludo = prompt("Ingresa tu nombre");
+//const saludo = prompt("Ingresa tu nombre");
 
-saludoUsuario.innerText = saludo;
+saludoUsuario.innerText = "PASO1";
 
 //Agregar texto a cards con DOM
 
@@ -19,7 +77,7 @@ tarjeta2.innerText = "Adquiere tus descuentos en accesorios para tu uniforme"
 tarjeta3.innerText = "Adquiere tus descuentos en viajes de larga distancia"
 tarjeta4.innerText = "Adquiere tus descuentos en articulos para el hogar"
 tarjeta5.innerText = "Adquiere tus descuentos en tu papelería escolar"
-tarjeta6.innerText = "Adquiere tus descuentos en indumentaria y calzados"
+tarjeta6.innerText = "Adquiere tus descuentos en indumentaria y calzados" */
 
 
 //Array de objetos en stock-revisar
@@ -38,7 +96,10 @@ const descuentosCarrito = [];
 
 console.log(descuentosCarrito);
 
-//EVENTOS para click en compras 
+
+
+
+/* EVENTOS para click en compras 
 
 let boton0 = document.getElementById("btn-descuento-desc0")
       boton0.addEventListener("click", respuestaClick0)
@@ -67,8 +128,8 @@ let boton4 = document.getElementById("btn-descuento-desc4")
       function respuestaClick4 (){
         alert("Producto agregado a tu carrito!");
       }
-let boton5 = document.getElementById("btn-descuento-desc5")
+let boton5 = document.getElementById("btn-agregar-Indumentaria")
       boton5.addEventListener("click", respuestaClick5)
       function respuestaClick5 (){
-        alert("Producto agregado a tu carrito!");
-      }
+        alert("Producto agregado a tu carrito!"); /
+      }*/

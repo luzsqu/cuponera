@@ -8,19 +8,47 @@
         <title>HIKUPON</title>
         
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-       
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+      
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
+        <div class="row" id="paso1" style="background-image: url('https://images.pexels.com/photos/911738/pexels-photo-911738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
+            <form id="form1">
+                
+                <div class="row">
+                        <div class="col-sm-6" style="text-align: right;">
+                            <h4>Nombre:</h4>
+                        </div>
+                        <div class="col-sm-6 text-left">
+                            <input type="text" id="txt1" name="txt1" /> 
+                        </div>
+                </div>
+                <div class="row">
+                        <div class="col-sm-6"  style="text-align: right;">
+                            <h4>Instituto Terciario:</h4>
+                        </div>
+                        <div class="col-sm-6 text-left">
+                            <input type="text" id="txt2" name="txt2" />
+                        </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                        <input type="button" id="btnEnviar" name="btnEnviar" value="Enviar" onclick="ValidarUsuario()" />
+                </div>
+            </form>
+        </div>
         <!-- navbar-->
+        <div class="row" id="paso2" style="display:none;">
         <nav  class="navbar navbar-expand-lg navbar-white bg-white">
             <div class="container">
-                <a id="boton" class="btn btn-outline-secondary" href="#" onclick="activarDark();">Dark mode</a>
+                <!-- <a id="boton" class="btn btn-outline-secondary" href="#" onclick="activarDark();">Dark mode</a> -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Carrito</a></li>
+                        <li  class="nav-item"><a class="nav-link active" aria-current="page" href="../pages/carrito.html">  <i class="bi bi-bag-check"></i>
+                            Carrito (<span id="contador">0</span>)</a></li>
                         <li class="nav-item"><a class="nav-link" href="#!">¿Cómo hago?</a></li>
+                        <li class="nav-item"><a class="nav-link" href=""><i class="bi bi-person-circle"></i> <span id="usuario"></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -30,35 +58,19 @@
         <header id= "principal" class="py-5 bg-image-full" style="background-image: url('https://images.pexels.com/photos/911738/pexels-photo-911738.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')">
             <div class="text-center my-5">
                 <img class="img-fluid mb-4" src="assets/logo.png" alt="..." />
-                <!--para validar al estudiante-->
-                     <form id="form1" name="form1" method="post" action="#" onsubmit="return validar();">
-                        Mail: <input type="text" id="txt1" name="txt1" />
-                        Instituto: <input type="text" id="txt2" name="txt2" />
-                        <input type="submit" id="btnEnviar" name="btnEnviar" value="Enviar" />
-                    </form>
-                <!--para validar al estudiante-->
 
-                <h1 class="text-black fs-3 fw-bolder">¿QUERÉS SIMULAR TU CUPÓN DE DESCUENTO?</h1>
-                <span style="color: rgb(245, 19, 19);">IMPORTE A GASTAR:</span> 
+
+                <h1 class="text-black fs-3 fw-bolder">¿QUERÉS OBTENER TU CUPÓN DE DESCUENTO?</h1>
+                <h3>Si sos estudiante de un instituto terciario podés gozar de todos estos descuentos</h3>
+                <h4>¡Ojo! se agotan. Por eso elegí los que vas a usar</h4>
+               <!-- <span style="color: rgb(245, 19, 19);">IMPORTE A GASTAR:</span> 
                 <input type="number" id="importeCupon" value="0">
-                <button onclick="mostrarDescuento()" class="btn btn-danger">Calcular</button>
+                <button onclick="mostrarDescuento()" class="btn btn-danger">Calcular</button> -->
             </div>
         </header>
-        <div>
-            <p class="saludo">Hola!</p>
-            <p class="saludo" id="nombre-usuario"></p>
-            <p class="saludo"> Cómo estás?</p>
-            <h1>Tienda Virtual</h1>
-          </div>
-     </section>
-     <main>
-        <div id="tabla-dom">
-          <!--Contenedor para pruebas DOM-->
-        </div>
+       
           <div><!--Contenedor General Tienda-->
-              
-              <!-- cards de productos a desarrollar-->
-        <div class="container-fluid mb-5">
+                      <div class="container-fluid mb-5">
           <div class="text-center mt-5">
               <h1>ELEGÍ TU HIKUPON</h1>
           </div>
@@ -66,31 +78,36 @@
               <div class="col-md-4">
                   <div class="box">
                       <div class="our-services settings">
-                          <div class="icon"> <img src="https://i.imgur.com/6NKPrhO.png"> </div>
+                          <div class="icon"> <img src="https://img.icons8.com/doodle/48/000000/binoculars--v1.png"/> </div>
                           <h4>LIBRERIAS</h4>
                           <p class="card-text" id="descuento-libreria"></p>
-                          <a href="#" id="btn-descuento-desc0" class="btn btn-primary">Comprar</a>
+                          <a id="btn-agregar-Librerias" onclick="AgregarCarrito('Librerias')" class="btn btn-primary">Quiero mi cupón</a>
+                          <a id="btn-quitar-Librerias" style="display: none;" onclick="QuitarCarrito('Librerias')" class="btn btn-primary">Quitar</a>
                       </div>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="box">
                       <div class="our-services speedup">
-                          <div class="icon"> <img src="https://i.imgur.com/KMbnpFF.png"> </div>
+                          <div class="icon"> <img src="https://img.icons8.com/doodle/48/000000/puzzle--v1.png"/> </div>
                           <h4>ACCESORIOS</h4>
                           <p class="card-text" id="descuento-accesorio"></p>
-                          <a href="#" id="btn-descuento-desc1" class="btn btn-primary">Comprar</a>
-                      </div>
+                          <a id="btn-agregar-Accesorios" onclick="AgregarCarrito('Accesorios')" class="btn btn-primary">Quiero mi cupón</a>
+                          <a id="btn-quitar-Accesorios" style="display: none;" onclick="QuitarCarrito('Accesorios')" class="btn btn-primary">Quitar</a>
+
+                        </div>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="box">
                       <div class="our-services privacy">
-                          <div class="icon"> <img src="https://i.imgur.com/AgyneKA.png"> </div>
+                          <div class="icon"> <img src="https://img.icons8.com/doodle/48/000000/sun--v1.png"/> </div>
                           <h4>VIAJES</h4>
                           <p class="card-text" id="descuento-viajes"></p>
-                          <a href="#" id="btn-descuento-desc2" class="btn btn-primary">Comprar</a>
-                      </div>
+                          <a  id="btn-agregar-Viajes" onclick="AgregarCarrito('Viajes')" class="btn btn-primary">Quiero mi cupón</a>
+                          <a id="btn-quitar-Viajes" style="display: none;" onclick="QuitarCarrito('Viajes')" class="btn btn-primary">Quitar</a>
+
+                        </div>
                   </div>
               </div>
           </div>
@@ -98,31 +115,37 @@
               <div class="col-md-4">
                   <div class="box">
                       <div class="our-services backups">
-                          <div class="icon"> <img src="https://i.imgur.com/vdH9LKi.png"> </div>
+                          <div class="icon"> <img src="https://img.icons8.com/doodle/48/000000/binoculars--v1.png"/> </div>
                           <h4>HOGAR</h4>
                           <p class="card-text" id="descuento-articulos"></p>
-                          <a href="#" id="btn-descuento-desc3" class="btn btn-primary">Comprar</a>
-                    </div>
+                          <a id="btn-agregar-Hogar" onclick="AgregarCarrito('Hogar')" class="btn btn-primary">Quiero mi cupón</a>
+                          <a id="btn-quitar-Hogar" style="display: none;" onclick="QuitarCarrito('Hogar')" class="btn btn-primary">Quitar</a>
+
+                        </div>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="box">
                       <div class="our-services ssl">
-                          <div class="icon"> <img src="https://i.imgur.com/v6OnUqu.png"> </div>
+                          <div class="icon"> <img src="https://img.icons8.com/doodle/48/000000/toolbox.png"/> </div>
                           <h4>PAPELERIA</h4>
                           <p class="card-text" id="descuento-papeleria"></p>
-                          <a href="#" id="btn-descuento-desc4" class="btn btn-primary">Comprar</a>
-                      </div>
+                          <a id="btn-agregar-Papeleria" onclick="AgregarCarrito('Papeleria')" class="btn btn-primary">Quiero mi cupón</a>
+                          <a id="btn-quitar-Papeleria" style="display: none;" onclick="QuitarCarrito('Papeleria')" class="btn btn-primary">Quitar</a>
+
+                        </div>
                   </div>
               </div>
               <div class="col-md-4">
                   <div class="box">
                       <div class="our-services database">
-                          <div class="icon"> <img src="https://i.imgur.com/VzjZw9M.png"> </div>
+                          <div class="icon"> <img src="https://img.icons8.com/clouds/100/000000/user-female.png"/> </div>
                           <h4>INDUMENTARIA</h4>
                           <p class="card-text" id="descuento-indumentaria"></p>
-                          <a href="#" id="btn-descuento-desc5" class="btn btn-primary">Comprar</a>
-                      </div>
+                          <a id="btn-agregar-Indumentaria" onclick="AgregarCarrito('Indumentaria')" class="btn btn-primary">Quiero mi cupón</a>
+                          <a id="btn-quitar-Indumentaria" style="display: none;" onclick="QuitarCarrito('Indumentaria')" class="btn btn-primary">Quitar</a>
+
+                        </div>
                   </div>
               </div>
           </div>
@@ -188,24 +211,27 @@
            </div>
         <!-- Footer-->
         <div class="col-md-3 col-lg-2">
-            <h3>Redes Sociales</h3>
             <div class="footer-social">
-              <a class="a-social-link" href="#"><img class="logo-footer" src="assets/logoig.png" alt="logo Instagram"></a>
-              <a class="a-social-link" href="#"> <img class="logo-footer" src="assets/logomail.png" alt="logo mail"></a>
+              <a class="a-social-link" href="www.instagram.com/luzsqubiz"><img src="https://img.icons8.com/doodle/48/000000/instagram--v1.png"/></a>
+              <a class="a-social-link" href="#"> <img src="https://img.icons8.com/doodle/48/000000/pinterest.png"/></a>
             </div>
             
           </div>
           <div class="col-md-3 col-lg-3">
             <div class="footer-contact">
-              <h3>También podes contactarnos</h3>
-              <p class="textoFooter">Escribinos: tienda.hikupon@gmail.com</p>
+              <h4>También podes contactarnos</h4>
+              <img src="https://img.icons8.com/clouds/100/000000/user-female.png"/> Escribinos: tienda.hikupon@gmail.com
             </div>
           </div>
           </footer>
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; HIKUPON</p></div>
         </footer>
+
+    </div>
         <!-- Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!--  JS-->
         <script src="js/scripts.js"></script>
